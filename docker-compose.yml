@@ -1,0 +1,42 @@
+version: "3" 
+services:
+  # server nginx
+  nginx:
+    image: nginx:1.13
+    volumes:
+      - "./app:/var/www/html"
+      - "./nginx/nginx.conf:/etc/nginx/nginx.conf"
+    ports:
+      - "80:80"
+    depends_on:
+      - php
+
+  # php
+  php:
+    build:
+      context: ./php
+    volumes:
+      - "./app:/var/www/html"
+    ports:
+      - "9000:9000"
+    environment:
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASS=${MYSQL_PASSWORD}
+
+  mysql:    
+    image: mysql:5.7
+    ports:
+      - 3306:3306
+    depends_on:
+      - php
+    volumes:
+      - "db_data:/var/lib/mysql"
+      - "./mysql/initial_data:/docker-entrypoint-initdb.d"
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+
+volumes:
+  db_data:
