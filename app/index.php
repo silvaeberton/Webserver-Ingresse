@@ -7,6 +7,15 @@ require 'db.php';
 
 $app = new \Slim\App;
 
+$cliente = new \Predis\Cliente("tcp://localhost:6379",[
+    "prefix" => $app->environment["SERVER_NAME"]
+]);
+
+$app->add(new \Slim\Middleware\RedisCache("", [
+	'timeout' => 28800
+]));
+
+
 
 $app->get('/api/users/{id}', function(Request $request, Response $response){
     echo "GET ID <br />";

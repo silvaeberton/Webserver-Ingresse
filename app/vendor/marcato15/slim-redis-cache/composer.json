@@ -1,0 +1,33 @@
+{
+	"name": "marcato15/slim-redis-cache",
+	"type": "library",
+	"description": "Redis cache middleware for Slim framework",
+	"keywords": ["slim", "middleware", "cache", "redis"],
+	"homepage": "https://github.com/marcato15/slim-redis-cache",
+	"license": "Apache-2.0",
+	"authors": [
+		{
+			"name": "marcato15",
+			"email": "marcato15@gmail.com"
+		},
+		{
+			"name": "abouvier",
+			"email": "abouvier@student.42.fr"
+		}
+	],
+	"require": {
+		"php": ">=5.4.0",
+		"slim/slim": ">=2.3",
+		"predis/predis": "~1.0"
+	},
+	"autoload": {
+		"psr-4": {
+			"SlimRedisCache\\": "src/"
+		}
+	},
+	"extra": {
+		"branch-alias": {
+			"dev-master": "0.1-dev"
+		}
+	}
+}
