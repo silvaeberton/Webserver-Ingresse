@@ -18,9 +18,9 @@ $app->get('/api/users/{id}', function(Request $request, Response $response){
         // Connect
         $db = $db->connect();        
         $stmt = $db->query($sql);
-        $customers = $stmt->fetchAll(PDO::FETCH_OBJ);
+        $user = $stmt->fetchAll(PDO::FETCH_OBJ);
         $db = null;
-        echo json_encode($customers);
+        echo json_encode($user);
     } catch(PDOException $e){
         echo '{"error": {"text": '.$e->getMessage().'}';
     }
@@ -37,9 +37,9 @@ $app->get('/api/users', function(Request $request, Response $response){
         // Connect
         $db = $db->connect();        
         $stmt = $db->query($sql);
-        $customers = $stmt->fetchAll(PDO::FETCH_OBJ);
+        $users = $stmt->fetchAll(PDO::FETCH_OBJ);
         $db = null;
-        echo json_encode($customers);
+        echo json_encode($users);
     } catch(PDOException $e){
         echo '{"error": {"text": '.$e->getMessage().'}';
     }
