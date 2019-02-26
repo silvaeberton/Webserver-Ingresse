@@ -1,6 +1,6 @@
 <?php
 
-use Beto\TodoAPI\App;
+use Beto\APIteste\App;
 use Slim\Http\Environment;
 use Slim\Http\Request;
 
