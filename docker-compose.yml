@@ -30,7 +30,7 @@ services:
     depends_on:
       - php
     #volumes:
-      #- "db_data:/var/lib/mysql"
+      - "./mysql/db_data:/var/lib/mysql"
       #- "./mysql/initial_data:/docker-entrypoint-initdb.d"
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
@@ -47,5 +47,5 @@ services:
     environment:
       - PMA_ARBITRARY=1
 
-#volumes:
- #db_data:
+volumes:
+ db_data:
