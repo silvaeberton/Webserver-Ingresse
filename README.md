@@ -53,7 +53,9 @@ PRIMARY KEY (id)
 
 Use an rest client like REATEASY or POSTMAN whit Content-Type: application/json
 
-Exemple
+Exemple of POST
+
+localhost/api/users/add
 ```json
 {
     "name" : "Eberton",
