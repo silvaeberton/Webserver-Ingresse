@@ -2,8 +2,8 @@
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
 
-require '../database/db.php';
-require '../vendor/autoload.php';
+require 'database/db.php';
+require 'vendor/autoload.php';
 
 
 $app = new \Slim\App;
@@ -14,9 +14,7 @@ $app->get('/api/users/{id}', function(Request $request, Response $response){
     $id = $request->getAttribute("id");
     $sql = "SELECT * FROM users WHERE id=$id";
     try{
-        // Get DB Object
         $db = new db();
-        // Connect
         $db = $db->connect();        
         $stmt = $db->query($sql);
         $user = $stmt->fetchAll(PDO::FETCH_OBJ);
@@ -31,11 +29,11 @@ $app->get('/api/users/{id}', function(Request $request, Response $response){
 
 $app->get('/api/users', function(Request $request, Response $response){
     echo "GET ALL <br />";
+
     $sql = "SELECT * FROM users";
+
     try{
-        // Get DB Object
         $db = new db();
-        // Connect
         $db = $db->connect();        
         $stmt = $db->query($sql);
         $users = $stmt->fetchAll(PDO::FETCH_OBJ);
@@ -57,9 +55,7 @@ $app->post('/api/users/add', function(Request $request, Response $response){
     
     $sql = "INSERT INTO users (name,email) VALUES(:name,:email)";
     try{
-        // Get DB Object
         $db = new db();
-        // Connect
         $db = $db->connect();
         $stmt = $db->prepare($sql);
         $stmt->bindParam(':name', $name);
@@ -80,13 +76,10 @@ $app->put('/api/users/update/{id}', function(Request $request, Response $respons
     echo "Nome = " . $name . "<br />";
     echo "Email = " . $email . "<br />";
     
-    $sql = "UPDATE users SET	name = :name, email	= :email WHERE id = $id";
-     
+    $sql = "UPDATE users SET	name = :name, email	= :email WHERE id = $id";     
     
     try{
-        // Get DB Object
         $db = new db();
-        // Connect
         $db = $db->connect();
         $stmt = $db->prepare($sql);
         $stmt->bindParam(':name', $name);
@@ -105,9 +98,7 @@ $app->delete('/api/users/delete/{id}', function(Request $request, Response $resp
 
     $sql = "DELETE FROM users WHERE id = $id";
     try{
-        // Get DB Object
         $db = new db();
-        // Connect
         $db = $db->connect();
         $stmt = $db->prepare($sql);
         $stmt->execute();
