@@ -7,9 +7,9 @@ namespace Composer\Autoload;
 class ComposerStaticInit21d27c969794d2cd9f479709ebce973c
 {
     public static $files = array (
+        '253c157292f75eb38082b5acb06f3f01' => __DIR__ . '/..' . '/nikic/fast-route/src/functions.php',
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
-        '253c157292f75eb38082b5acb06f3f01' => __DIR__ . '/..' . '/nikic/fast-route/src/functions.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -24,6 +24,7 @@ class ComposerStaticInit21d27c969794d2cd9f479709ebce973c
         'S' => 
         array (
             'Symfony\\Polyfill\\Ctype\\' => 23,
+            'Slim\\HttpCache\\' => 15,
             'Slim\\' => 5,
         ),
         'P' => 
@@ -60,6 +61,10 @@ class ComposerStaticInit21d27c969794d2cd9f479709ebce973c
         'Symfony\\Polyfill\\Ctype\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
+        ),
+        'Slim\\HttpCache\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/slim/http-cache/src',
         ),
         'Slim\\' => 
         array (
