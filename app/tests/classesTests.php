@@ -28,20 +28,8 @@ class App
         $app = new \Slim\App;
         
         $app->get('/', function (Request $request, Response $response) {
-            echo "GET ALL";
-            $sql = "SELECT * FROM users";
-            try{
-                
-                $db = new db();
-                
-                $db = $db->connect();        
-                $stmt = $db->query($sql);
-                $users = $stmt->fetchAll(PDO::FETCH_OBJ);
-                $db = null;
-                //echo json_encode($users);
-            } catch(PDOException $e){
-                echo '{"error": {"text": '.$e->getMessage().'}';
-            }
+            echo "GET ALL";                
+            
         });
         
         $this->app = $app;

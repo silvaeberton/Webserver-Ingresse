@@ -6,7 +6,7 @@ use Slim\Http\Request;
 
 require "classesTests.php";
 
-class TodoTest extends \PHPUnit\Framework\TestCase
+class testMethods extends \PHPUnit\Framework\TestCase
 {
     protected $app;
 
