@@ -39,6 +39,7 @@ Navigate to SQL and execute this comands:
 
 ```SQL
 CREATE DATABASE wsingresse if NOT EXISTS;
+
 USE wsingresse;
 
 CREATE TABLE users(
@@ -48,26 +49,32 @@ email varchar(50),
 PRIMARY KEY (id)
 );
 ```
-
-
-
-
 ### Usage
 
+Use an rest client like REATEASY or POSTMAN whit Content-Type: application/json
 
-
-
-### Installation
-
-Create database or import from _sql/slimapp.sql
-
-Edit db/config params
-
-Install SlimPHP and dependencies
-
-```sh
-$ composer
+Exemple
+```json
+{
+    "name" : "Eberton",
+    "email": "beto.eberton@rest.com.br"    
+}
 ```
+
+### Unitary test
+
+Navigate to app folder and execute this command
+
+vendor/bin/phpunit ./tests/test.php
+
+### Cache time
+
+To change Cache time navigate and open index.php and change line
+```php
+$resWithExpires = $this->cache->withExpires($response, time() + 3600 * 24);
+```
+Where 24 indicate time in hours
+
 ### API Endpoints
 ```sh
 $ GET /api/users
